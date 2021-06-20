@@ -29,7 +29,7 @@ public class ServerLoadBalancerTest {
 		balance(aListOfServersWith(theServer),anListOfVmsWith(theVm));
 
 		assertThat(theServer,hasLoadPercentageOf(100.0d));
-		assertThat("the server should contain vm",theServer.containd(theVm));
+		assertThat("the server should contain vm",theServer.contains(theVm));
 	}
 
 	private void balance(Server[] servers, Vm[] vms) {
@@ -38,6 +38,18 @@ public class ServerLoadBalancerTest {
 
 	private Vm[] anEmptyListOfVms() {
 		return new Vm[0];
+	}
+
+	private Vm[] anListOfVmsWith(Vm vm) {
+		return new Vm[]{vm};
+	}
+
+	private Vm a(VmBuilder builder){
+		return builder.build();
+	}
+
+	private VmBuilder vm(){
+		return new VmBuilder();
 	}
 
 	private Server[] aListOfServersWith(Server server) {
