@@ -3,7 +3,7 @@ package edu.iis.mto.serverloadbalancer;
 public class Server {
 
 	public double currentLoadPecentage;
-	public int capacity;
+	private int capacity;
 
 	public Server(int capacity) {
 		this.capacity=capacity;
@@ -11,5 +11,9 @@ public class Server {
 
 	public boolean contains(Vm vm){
 		return true;
+	}
+
+	public void addVm(Vm vm){
+		this.currentLoadPecentage=(double) vm.size/(double)this.capacity*100.0d;
 	}
 }
