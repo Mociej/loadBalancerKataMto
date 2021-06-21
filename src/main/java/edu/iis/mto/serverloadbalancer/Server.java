@@ -6,15 +6,19 @@ import java.util.List;
 public class Server {
 
 	public double currentLoadPecentage;
+
 	private int capacity;
 	private List<Vm> vms=new ArrayList<Vm>();
 
 	public Server(int capacity) {
 		this.capacity=capacity;
 	}
+	public int getCapacity() {
+		return capacity;
+	}
 
 	public boolean contains(Vm vm){
-		return true;
+		return vms.contains(vm);
 	}
 
 	public void addVm(Vm vm){

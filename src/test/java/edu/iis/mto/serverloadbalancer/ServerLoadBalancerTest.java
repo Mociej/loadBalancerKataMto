@@ -62,7 +62,7 @@ public class ServerLoadBalancerTest {
 	@Test
 	public void aVM_shouldBeBalanced_onLessLoadedServerFirst(){
 		Server lessLoadedServer = a(server().withCapacity(100).withCurrentLoadOf(45.0d));
-		Server moreLoadedServer = a(server().withCapacity(100).withCurrentLoadOf(45.0d));
+		Server moreLoadedServer = a(server().withCapacity(100).withCurrentLoadOf(50.0d));
 		Vm theVm=a(vm().ofSize(10));
 
 		balance(aListOfServersWith(moreLoadedServer,lessLoadedServer),anListOfVmsWith(theVm));
@@ -81,8 +81,8 @@ public class ServerLoadBalancerTest {
 	}
 
 
-	private Server[] aListOfServersWith(Server server) {
-		return new Server[] { server };
+	private Server[] aListOfServersWith(Server... servers) {
+		return servers;
 	}
 
 	private <T> T a(Builder<T> builder) {
