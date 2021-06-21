@@ -6,7 +6,7 @@ import java.util.List;
 public class Server {
 
 	public double currentLoadPecentage;
-
+	public static final double MAXIMUM_LOAD = 100.0d;
 	private int capacity;
 	private List<Vm> vms=new ArrayList<Vm>();
 
@@ -23,7 +23,7 @@ public class Server {
 
 	public void addVm(Vm vm){
 		this.vms.add(vm);
-		this.currentLoadPecentage=(double) vm.size/(double)this.capacity*100.0d;
+		this.currentLoadPecentage=(double) vm.size/(double)this.capacity*MAXIMUM_LOAD;
 	}
 
 	public int vmsCount(){
